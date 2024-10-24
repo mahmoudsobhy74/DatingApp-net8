@@ -19,7 +19,7 @@ public class UsersController(DataContext context) : ControllerBase // C# 12 Prim
     }
 
     [HttpGet("{id:int}")] // api/users/3
-    public async Task<ActionResult<AppUser>> GetUser(int id)
+    public async Task<ActionResult<AppUser>> GetUserById(int id)
     {
         var user = await context.Users.FindAsync(id);
         
