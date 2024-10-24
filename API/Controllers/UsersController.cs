@@ -3,11 +3,11 @@ using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace API;
+namespace API.Controllers;
 
 
 [ApiController]
-[Route("[controller]")] // / api/users
+[Route("api/[controller]")] // / api/users
 public class UsersController(DataContext context) : ControllerBase // C# 12 Primary constructor feature
 {
     [HttpGet]
