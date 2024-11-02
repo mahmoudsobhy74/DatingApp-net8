@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
-[Authorize]
+
 public class UsersController(DataContext context) : BaseApiController // C# 12 Primary constructor feature
 {
     [AllowAnonymous]
