@@ -20,19 +20,24 @@ export class MemberDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
- this.loadMember();
+    this.loadMember();
   }
 
   loadMember(){
-    const userame = this.route.snapshot.paramMap.get('username');
-    if (!userame) return;
-    this.memberService.getMember(userame).subscribe({
-      next: member => {
-        this.member = member;
-        member.photos.map(p => {
-          this.images.push(new ImageItem({src: p.url, thumb: p.url}))
-        })
-      }
+    debugger;
+    const username = this.route.snapshot.paramMap.get('userName');
+    console.log(this.route.snapshot.paramMap);
+    if (!username) return;
+
+    this.memberService.getMember(username).subscribe({
+      next: member => this.member = member
+        
+      //   {
+      //   this.member = member;
+      //   member.photos.map(p => {
+      //     this.images.push(new ImageItem({src: p.url, thumb: p.url}))
+      //   })
+      // }
     })
   }
 
