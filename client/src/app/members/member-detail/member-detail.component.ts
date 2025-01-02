@@ -23,23 +23,18 @@ export class MemberDetailComponent implements OnInit {
     this.loadMember();
   }
 
-  loadMember(){
+  loadMember() {
     debugger;
     const username = this.route.snapshot.paramMap.get('userName');
     console.log(this.route.snapshot.paramMap);
     if (!username) return;
-
     this.memberService.getMember(username).subscribe({
-      next: member => this.member = member
-        
-      //   {
-      //   this.member = member;
-      //   member.photos.map(p => {
-      //     this.images.push(new ImageItem({src: p.url, thumb: p.url}))
-      //   })
-      // }
+      next: member =>{
+         this.member = member;
+         member.photos.map(p => {
+          this.images.push(new ImageItem({src: p.url, thumb: p.url}))
+        })
+      }
     })
   }
-
-
 }
